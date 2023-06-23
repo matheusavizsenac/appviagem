@@ -2,7 +2,6 @@ package com.example.trabalho_aplicativo_viagem.repository
 
 import com.example.trabalho_aplicativo_viagem.dao.ExpenseDao
 import com.example.trabalho_aplicativo_viagem.entity.Expense
-import com.example.trabalho_aplicativo_viagem.entity.Travel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
