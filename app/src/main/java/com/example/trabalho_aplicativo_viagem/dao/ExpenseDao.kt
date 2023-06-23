@@ -4,7 +4,7 @@ import androidx.room.*
 import com.example.trabalho_aplicativo_viagem.entity.Expense
 
 @Dao
-interface  ExpenseDao {
+interface  áExpenseDao {
 
     @Insert
     fun insert(expense: Expense)
