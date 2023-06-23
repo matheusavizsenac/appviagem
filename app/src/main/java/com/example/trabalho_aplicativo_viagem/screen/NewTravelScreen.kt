@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.RadioButton
 import androidx.compose.material.Scaffold
@@ -20,6 +21,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
@@ -107,8 +109,8 @@ fun NewTravel(userId: Int, onBack: () -> Unit)  {
                     onClick = {viewModel.classification = "L"}
                 )
                 Text(
-                    text = "lazer",
-                    modifier = Modifier.padding(start = 16.dp)
+                    text = "L",
+                    modifier = Modifier.padding(start = 2.dp)
                 )
             }
 
@@ -118,8 +120,8 @@ fun NewTravel(userId: Int, onBack: () -> Unit)  {
                     onClick = {viewModel.classification = "N"}
                 )
                 Text(
-                    text = "Negocios",
-                    modifier = Modifier.padding(start = 16.dp)
+                    text = "N",
+                    modifier = Modifier.padding(start = 1.dp)
                 )
             }
 
@@ -140,7 +142,9 @@ fun NewTravel(userId: Int, onBack: () -> Unit)  {
                 modifier = Modifier.onFocusChanged { b -> openDatePicker(b.isFocused, "fim") }
             )
             Row() {
-                Button(onClick = {
+                Button(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
+                    onClick = {
                     focusManager.clearFocus()
                     viewModel.registerNewTravel(userId, onSuccess = {
                         onBack()

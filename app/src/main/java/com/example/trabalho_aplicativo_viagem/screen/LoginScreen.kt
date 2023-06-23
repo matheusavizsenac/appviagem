@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
@@ -44,6 +45,7 @@ fun LoginScreen(onAfterLogin: (Int) -> Unit, onBack:() -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally
 
         ) {
+            Text("Login", Modifier.size(50.dp))
             OutlinedTextField(
                 value = viewModel.name,
                 onValueChange = { viewModel.name = it},
@@ -60,7 +62,9 @@ fun LoginScreen(onAfterLogin: (Int) -> Unit, onBack:() -> Unit) {
                 }
             )
             Row() {
-                Button(onClick = {
+                Button(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
+                    onClick = {
                     focusManager.clearFocus()
                     viewModel.validateLogin(onResult = {userId ->
                         if (userId > 0) {
@@ -70,8 +74,9 @@ fun LoginScreen(onAfterLogin: (Int) -> Unit, onBack:() -> Unit) {
                 }) {
                     Text(text = "Login")
                 }
-                Spacer(modifier = Modifier.size(8.dp))
+                Spacer(modifier = Modifier.size(50.dp))
                 Button(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
                     onClick = {
                         onBack()
                     }) {

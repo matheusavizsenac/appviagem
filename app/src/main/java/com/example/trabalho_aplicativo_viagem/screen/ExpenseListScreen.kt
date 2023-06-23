@@ -10,10 +10,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -38,6 +40,7 @@ fun ExpenseListScreen(travelId: Int, OpenNewExpense: (Int) -> Unit) {
 
     Column(Modifier.fillMaxSize()) {
         Button(
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
             onClick = {
                 OpenNewExpense(travelId)
             }) {
@@ -66,7 +69,7 @@ fun ExpenseListScreen(travelId: Int, OpenNewExpense: (Int) -> Unit) {
             }
         }
         Text(
-            text = "Total: " + total
+            text = "Total de Gastos: " + total
         )
 
     }

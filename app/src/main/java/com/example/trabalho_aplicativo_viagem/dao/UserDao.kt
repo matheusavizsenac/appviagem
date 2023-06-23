@@ -3,6 +3,7 @@ package com.example.trabalho_aplicativo_viagem.dao
 import androidx.room.*
 import com.example.trabalho_aplicativo_viagem.entity.User
 
+@Dao
 interface UserDao {
     @Insert
     fun insert(user: User)

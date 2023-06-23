@@ -10,10 +10,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -34,6 +36,7 @@ fun ListScreen(userId: Int, OpenNewTravel: (Int) -> Unit, listExpenses:(Int) -> 
 
     Column(Modifier.fillMaxSize()) {
         Button(
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
             onClick = {
                 OpenNewTravel(userId)
             }) {
@@ -55,6 +58,7 @@ fun ListScreen(userId: Int, OpenNewTravel: (Int) -> Unit, listExpenses:(Int) -> 
                         Spacer(Modifier.weight(1f))
 
                         Button(
+                            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
                             onClick = {
                                 listExpenses(it.id)
                             }) {

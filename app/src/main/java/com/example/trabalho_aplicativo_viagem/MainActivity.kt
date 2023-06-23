@@ -4,9 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.rememberScaffoldState
@@ -16,7 +19,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -57,14 +62,24 @@ fun MyApp() {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            TopAppBar() {
-                Button(onClick = { navController.navigate("form") }) {
+            TopAppBar(
+                backgroundColor = Color.Black
+            ) {
+                Button(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
+                    onClick = { navController.navigate("form") }) {
                     androidx.compose.material.Text(text = "Add")
                 }
-                Button(onClick = { navController.navigate("login") }) {
+                Spacer(modifier = Modifier.size(50.dp))
+                Button(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
+                    onClick = { navController.navigate("login") }) {
                     androidx.compose.material.Text(text = "Login")
                 }
-                Button(onClick = { navController.navigate("about") }) {
+                Spacer(modifier = Modifier.size(50.dp))
+                Button(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
+                    onClick = { navController.navigate("about") }) {
                     androidx.compose.material.Text(text = "About")
                 }
             }
@@ -99,10 +114,10 @@ fun MyApp() {
                     arguments = listOf(navArgument("user_id") { type = NavType.StringType })
                 ) {
                     val param = it.arguments?.getString("user_id")
-                    val userId = param?.toInt()
-                    if (userId != null) {
+                    val user_id = param?.toInt()
+                    if (user_id != null) {
                         ListScreen(
-                            userId,
+                            user_id,
                             OpenNewTravel = { user_id ->
                                 navController.navigate("new_travel/$user_id")
                             },

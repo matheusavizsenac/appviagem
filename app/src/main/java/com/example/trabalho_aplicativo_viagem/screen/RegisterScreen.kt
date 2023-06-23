@@ -14,6 +14,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
@@ -72,7 +73,9 @@ fun FormScreen(onAfterSave: () -> Unit, onBack:() -> Unit) {
                 }
             )
             Row() {
-                Button(onClick = {
+                Button(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
+                    onClick = {
                     focusManager.clearFocus()
                     viewModel.registrar(onSuccess = {
                         onAfterSave()
@@ -82,6 +85,7 @@ fun FormScreen(onAfterSave: () -> Unit, onBack:() -> Unit) {
                 }
                 Spacer(modifier = Modifier.size(5.dp))
                 Button(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
                     onClick = {
                         onBack()
                     }) {
